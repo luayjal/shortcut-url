@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
@@ -31,6 +33,8 @@
             <main>
                 {{ $slot }}
             </main>
+               <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
+
         </div>
     </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,5 +30,7 @@ Route::prefix('dashboard')
     Route::get('index',[UrlController::class,'index'])->name('index');
     Route::get('create',[UrlController::class,'create'])->name('create');
     Route::post('store',[UrlController::class,'store'])->name('store');
+    Route::delete('delete/{id}',[UrlController::class,'destroy'])->name('delete');
 });
+Route::post('store',[UrlController::class,'visitorStore'])->name('visitor.store');
 Route::get('/{short}',[UrlController::class,'short'])->name('short');
